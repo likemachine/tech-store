@@ -1,5 +1,5 @@
 {
     "ConnectionStrings": {
-        "DefaultConnection": "Server=localhost\\SQLEXPRESS01;Database=master;Trusted_Connection=True;trustServerCertificate=true;"
+        "DefaultConnection": "Server=localhost\\SQLEXPRESS01;Database=TechStoreDB;Trusted_Connection=True;trustServerCertificate=true;"
     }
 }

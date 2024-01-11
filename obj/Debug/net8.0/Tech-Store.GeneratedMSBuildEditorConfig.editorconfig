@@ -9,27 +9,27 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Tech_Store
 build_property.RootNamespace = Tech_Store
-build_property.ProjectDir = c:\Users\boggz\OneDrive\Рабочий стол\Магистратура\Январь\Высицкий\Проект\Tech-Store\SQLDB feature\Tech-Store\
+build_property.ProjectDir = C:\Users\boggz\OneDrive\Рабочий стол\Магистратура\Январь\Высицкий\Проект\Tech-Store\SQLDB feature\Tech-Store\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = c:\Users\boggz\OneDrive\Рабочий стол\Магистратура\Январь\Высицкий\Проект\Tech-Store\SQLDB feature\Tech-Store
+build_property.MSBuildProjectDirectory = C:\Users\boggz\OneDrive\Рабочий стол\Магистратура\Январь\Высицкий\Проект\Tech-Store\SQLDB feature\Tech-Store
 build_property._RazorSourceGeneratorDebug = 
 
-[c:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/Products/List.cshtml]
+[C:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/Products/List.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcTGlzdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/Shared/_Layout.cshtml]
+[C:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/_ViewImports.cshtml]
+[C:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[c:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/_ViewStart.cshtml]
+[C:/Users/boggz/OneDrive/Рабочий стол/Магистратура/Январь/Высицкий/Проект/Tech-Store/SQLDB feature/Tech-Store/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
