@@ -1,0 +1,65 @@
+{
+  "Files": [
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\css\\normalize.css",
+      "PackagePath": "staticwebassets\\css\\normalize.css"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\Acer.jpg",
+      "PackagePath": "staticwebassets\\img\\Acer.jpg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\Asus.jpeg",
+      "PackagePath": "staticwebassets\\img\\Asus.jpeg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\Cart.png",
+      "PackagePath": "staticwebassets\\img\\Cart.png"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\DELL.png",
+      "PackagePath": "staticwebassets\\img\\DELL.png"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\Imac.jpg",
+      "PackagePath": "staticwebassets\\img\\Imac.jpg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\Iru.jpg",
+      "PackagePath": "staticwebassets\\img\\Iru.jpg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\LOGO.svg",
+      "PackagePath": "staticwebassets\\img\\LOGO.svg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\MacBook.jpg",
+      "PackagePath": "staticwebassets\\img\\MacBook.jpg"
+    },
+    {
+      "Id": "c:\\Users\\boggz\\OneDrive\\Рабочий стол\\Магистратура\\Январь\\Высицкий\\Проект\\Tech-Store\\SQLDB feature\\Tech-Store\\wwwroot\\img\\cart.svg",
+      "PackagePath": "staticwebassets\\img\\cart.svg"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Tech-Store.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Tech-Store.props",
+      "PackagePath": "build\\Tech-Store.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Tech-Store.props",
+      "PackagePath": "buildMultiTargeting\\Tech-Store.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Tech-Store.props",
+      "PackagePath": "buildTransitive\\Tech-Store.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
