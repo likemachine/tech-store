@@ -1,6 +1,0 @@
-{
-    "dotnet.defaultSolution": "Tech-Store.sln",
-    "dataworkspace.excludedProjects": [
-        "TechStore/TechStore.sqlproj"
-    ]
-}
