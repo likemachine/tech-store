@@ -13,6 +13,6 @@ namespace TechStore{
 
         public DbSet<Product> Product { get; set; }
         public DbSet<Models.Type> Type { get; set; }
-
+        public DbSet<CartItem> CartItem { get; set; }
         }
 }

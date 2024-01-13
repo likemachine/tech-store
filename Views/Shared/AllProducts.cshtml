@@ -1,0 +1,7 @@
+@model Product
+
+<div class="product-item">
+    <h2>@Model.Brand @Model.Model<h2>
+    <img src=@Model.Img alt="Просмотр" class="ProductImg">
+    <p>@Model.Price.ToString("c")</p>
+</div>

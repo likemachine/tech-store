@@ -6,12 +6,8 @@
         <h3>@Model.currType</h3>
             <div class="grid">
             @{
-                foreach(var product in Model.allProducts) {
-                    <div class="product-item">
-                        <h2>@product.Brand @product.Model<h2>
-                            <img src=@product.Img alt="Просмотр" class="ProductImg">
-                        <p>@product.Price.ToString("c")</p>
-                    </div>
+                foreach(Product product in Model.allProducts){
+                @Html.Partial("AllProducts", product)
                 }
             }
             </div>

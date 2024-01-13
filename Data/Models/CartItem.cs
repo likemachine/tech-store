@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace TechStore.Models{
     public class CartItem{
-        public int ItemId { get; set; }
+        public int Id { get; set; }
         public Product Product { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
 
         public string CartId { get; set; }
     }
