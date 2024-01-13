@@ -40,7 +40,7 @@ namespace TechStore {
                     new Product {
                         Brand = "Apple", 
                         Model = "MacBook Pro A2991", 
-                        Img = "/img/MacBook.jpg",
+                        Img = "/img/MacBook.png",
                         LongDesc = "2",
                         Price = 380000, 
                         Type = Types["Ноутбуки"]
