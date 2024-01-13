@@ -37,7 +37,7 @@ namespace TechStore.mocks{
                     new Product {
                         Brand = "Apple", 
                         Model = "MacBook Pro A2991", 
-                        Img = "/img/MacBook.jpg", 
+                        Img = "/img/MacBook.png", 
                         Price = 380000, 
                         Type = _typeProduct.AllTypes.First()
                     },
