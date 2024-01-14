@@ -21,7 +21,7 @@ namespace TechStore.Controllers {
         
         [Route("Cart/Index")]
         public ViewResult Index() {
-            var items = _cart.getShopItems();
+            var items = _cart.getCartItems();
             _cart.ListCartItems = items;
 
             var obj = new CartViewModel {

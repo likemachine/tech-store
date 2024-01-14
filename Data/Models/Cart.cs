@@ -37,7 +37,7 @@ namespace TechStore.Models {
             appDBContent.SaveChanges();
         }
 
-        public List<CartItem> getShopItems() {
+        public List<CartItem> getCartItems() {
             return appDBContent.CartItem.Where(c => c.CartId == CartId).Include(s => s.Product).ToList();
         }
     }
