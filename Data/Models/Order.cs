@@ -28,7 +28,5 @@ namespace TechStore.Models{
         [BindNever]
         [ScaffoldColumn(false)] //строка не будет отражена при просмотре исходного кода страницы
         public DateTime OrderTime { get; set; }
-
-        //public List<OrderDetail> orderDetails { get; set; }
     }
 }

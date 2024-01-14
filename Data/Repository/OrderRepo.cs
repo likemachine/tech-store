@@ -20,7 +20,7 @@ namespace TechStore.Repository{
             order.OrderTime = DateTime.Now;
             appDBContent.Order.Add(order);
 
-            appDBContent.SaveChanges(); //не уверен
+            appDBContent.SaveChanges();
             var items = cart.ListCartItems;
 
             foreach(var el in items) {
