@@ -17,7 +17,9 @@ namespace TechStore.Controllers {
             _allTypes = ipt;
         }
 
-        
+        [Route("/")]
+        [Route("Home/List")]
+        [Route("Home/List/{type}")]
         public ViewResult List(string type) {
 
             string _type = type;
@@ -26,15 +28,16 @@ namespace TechStore.Controllers {
             if(string.IsNullOrEmpty(type)) {
                 products = _allProducts.Products.OrderBy(i => i.Id);
             } else {
-                if(string.Equals("Серверы", type, StringComparison.OrdinalIgnoreCase)) {
+                if(string.Equals("Servers", type, StringComparison.OrdinalIgnoreCase)) {
                     products = _allProducts.Products.Where(i => i.Type.TypeName.Equals("Серверы")).OrderBy(i => i.Id);
-                } else if (string.Equals("Компьютеры", type, StringComparison.OrdinalIgnoreCase)) {
+                    currType = "Серверы";
+                } else if (string.Equals("Computers", type, StringComparison.OrdinalIgnoreCase)) {
                     products = _allProducts.Products.Where(i => i.Type.TypeName.Equals("Компьютеры")).OrderBy(i => i.Id);
-                } else if (string.Equals("Ноутбуки", type, StringComparison.OrdinalIgnoreCase)) {
+                    currType = "Компьютеры";
+                } else if (string.Equals("NoteBooks", type, StringComparison.OrdinalIgnoreCase)) {
                     products = _allProducts.Products.Where(i => i.Type.TypeName.Equals("Ноутбуки")).OrderBy(i => i.Id);
+                    currType = "Ноутбуки";
                 }
-
-                currType = _type;
             }
             
             var productObj = new HomeViewModel {

@@ -18,7 +18,8 @@ namespace TechStore.Controllers {
             _productRepo = productRepo;
             _cart = cart;
         }
-
+        
+        [Route("Cart/Index")]
         public ViewResult Index() {
             var items = _cart.getShopItems();
             _cart.ListCartItems = items;

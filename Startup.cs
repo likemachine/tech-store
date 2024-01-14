@@ -44,14 +44,10 @@ namespace TechStore{
             app.UseRouting();
             //app.UseMvcWithDefaultRoute(); закоментилось для подключения app.UseRouting и useEndpoints
             app.UseEndpoints(endpoints =>{
-                endpoints.MapControllerRoute( name: "default", pattern: "{controller=Home}/{action=List}/{id?}");
-                endpoints.MapControllerRoute( name: "typeFilter", pattern: "Product/{action}/{type?}");
-            });
-            // app.UseEndpoints(endpoints =>{
-            //     endpoints.MapControllerRoute(
-            //     name: "default",
-            //     pattern: "{controller=Home}/{action=List}/{id?}");
-            // });
+                 endpoints.MapControllerRoute(
+                 name: "default",
+                 pattern: "Home/{action}/{type?}");
+             });
 
             using (var scope = app.ApplicationServices.CreateScope()){
                 AppDBContent content = scope.ServiceProvider.GetRequiredService<AppDBContent>();
