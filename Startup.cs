@@ -37,6 +37,7 @@ namespace TechStore{
             services.AddSession();
         }
 
+        [Obsolete]
         public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();

@@ -9,4 +9,5 @@
     }
     <hr />
     <a asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 </div>

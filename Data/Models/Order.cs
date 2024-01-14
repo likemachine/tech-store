@@ -18,8 +18,6 @@ namespace TechStore.Models{
         public string Adress { get; set; }
         
         [Display(Name = "Номер телефона")]
-        [StringLength(10)]
-        [Required(ErrorMessage = "Не менее 10 символов")]
         [DataType(DataType.PhoneNumber)]
         public string Phone { get; set; }
         
@@ -31,6 +29,6 @@ namespace TechStore.Models{
         [ScaffoldColumn(false)] //строка не будет отражена при просмотре исходного кода страницы
         public DateTime OrderTime { get; set; }
 
-        public List<OrderDetail> OrderDetails { get; set; }
+        //public List<OrderDetail> orderDetails { get; set; }
     }
 }

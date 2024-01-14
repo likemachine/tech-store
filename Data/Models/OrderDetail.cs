@@ -9,8 +9,8 @@ namespace TechStore.Models{
         
         public decimal Price { get; set; }
         
-        public virtual Product product { get; set; }
+        public virtual Product Product { get; set; }
         
-        public virtual Order order { get; set; }
+        public virtual Order Order { get; set; }
     }
 }

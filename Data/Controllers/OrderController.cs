@@ -18,21 +18,32 @@ namespace TechStore.Controllers {
             return View();
         }
 
-        [HttpPost]
-        [Route("Order/Checkout")]
+        [HttpPost("Order/Checkout")]
         public IActionResult Checkout(Order order) {
             
             cart.ListCartItems = cart.getCartItems();
-
+            
+            Console.WriteLine("Товаров в корзине = {0}", cart.ListCartItems.Count);
             if(cart.ListCartItems.Count == 0) {
-                ModelState.AddModelError("","Корзина пуста"); //Ошибка не выводится
+                ModelState.AddModelError("","Корзина пуста");
+                Console.WriteLine("Ошибка не вывелась а товара нет");
             }
 
             if(ModelState.IsValid) {
                 allOrders.CreateOrder(order);
-                return RedirectToAction("Complete");
+                Console.WriteLine("Валидно");
+                return RedirectToAction(nameof(Complete));
             }
 
+            Console.WriteLine("Не валидно");
+            foreach (var modelState in ModelState.Values)
+                {
+                    foreach (var error in modelState.Errors)
+                    {
+                        Console.WriteLine(error.ErrorMessage);
+                    }
+                }
+                    
             return View(order);
         }
 
