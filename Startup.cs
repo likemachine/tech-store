@@ -27,6 +27,7 @@ namespace TechStore{
             services.AddDbContext<AppDBContent>(options => options.UseSqlServer(_confString.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllProducts, ProductRepo>();
             services.AddTransient<IProductsType, TypeRepo>();
+            services.AddTransient<IAllOrders, OrderRepo>();
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => Cart.GetCart(sp));

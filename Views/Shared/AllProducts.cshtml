@@ -4,4 +4,5 @@
     <h2>@Model.Brand @Model.Model<h2>
     <img src=@Model.Img alt="Просмотр" class="ProductImg">
     <p>@Model.Price.ToString("c")</p>
+    <p><a asp-controller="Cart" asp-action="addToCart" asp-route-id="@Model.Id">Добавить в корзину</a></p>
 </div>

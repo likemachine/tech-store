@@ -31,6 +31,7 @@ namespace TechStore.Controllers {
             return View(obj);
         }
 
+        [Route("Cart/addToCart")]
         public RedirectToActionResult addToCart (int id) {
             var item = _productRepo.Products.FirstOrDefault(i => i.Id == id);
             if(item != null) {
