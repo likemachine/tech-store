@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/style.css" type="text/css" asp-append-version="true">
 </head>
 <body>
+    <div class="wrapper">
     <header class="header">
             <nav class="nav">
                 <a href="/" class="logo">
@@ -26,9 +27,10 @@
                 </ul>
             </nav>
     </header>
-
-    @RenderBody()
-
+    <main class="main">
+        @RenderBody()
+    </main>
     <footer class="footer">© 2023 Tech-store</footer>
+    </div>
 </body>
 </html>

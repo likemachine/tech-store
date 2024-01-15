@@ -1,13 +1,14 @@
 @model CartViewModel
 
-<div>
+<div class = "form-container">
+    <h1>Корзина</h1>
     @foreach (var el in Model.Cart.ListCartItems) {
-        <div>
-            <b>Товар: </b> @el.Product.Model<bt />
-            <b>Цена: </b> @el.Product.Price.ToString("c")
+        <div class = "order">
+            <b>Товар: </b>@el.Product.Brand @el.Product.Model<bt />
+            <b>Цена: </b>@el.Product.Price.ToString("c")
         </div>
     }
     <hr />
-    <a asp-controller="Order" asp-action="Checkout">Оплатить</a>
+    <a asp-controller="Order" asp-action="Checkout" class = "button">Оплатить</a>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 </div>

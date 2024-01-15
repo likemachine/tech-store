@@ -27,6 +27,7 @@ namespace TechStore.Controllers {
             string currType = "";
             if(string.IsNullOrEmpty(type)) {
                 products = _allProducts.Products.OrderBy(i => i.Id);
+                currType = "Все товары";
             } else {
                 if(string.Equals("Servers", type, StringComparison.OrdinalIgnoreCase)) {
                     products = _allProducts.Products.Where(i => i.Type.TypeName.Equals("Серверы")).OrderBy(i => i.Id);

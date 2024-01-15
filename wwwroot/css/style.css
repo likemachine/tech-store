@@ -1,9 +1,12 @@
+
+html,
 body{ 
     font-family: 'Inter', sans-serif; 
     font-size: 14px; 
     font-weight: 400; 
     line-height: 18px; 
-    color: #0a0a0a; 
+    color: #0a0a0a;
+    height: 100%;
 } 
  
 a{ 
@@ -21,10 +24,16 @@ li{
     list-style-type: none; 
     font-weight: 700; 
     font-size: 1.6rem; 
-} 
- 
+}
+
+.wrapper{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .header{ 
-    background-color: #459090; 
+    background-color: #459090;
     height: 130px; 
     color: white; 
     border-bottom: 10px solid #D6C63A; 
@@ -34,7 +43,7 @@ li{
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    margin-right: 44px; 
+    /* margin-right: 44px;  */
 } 
  
 .logo{ 
@@ -42,64 +51,102 @@ li{
 } 
  
 .menu{ 
-    display: flex; 
-    margin: auto; 
+    display: flex;
+    padding: 20px;
+    align-items: center;
 } 
  
 .menu-item{ 
     padding-right: 30px; 
-} 
- 
+}
+
+.main{
+    flex: 1 1 auto;
+}
+
 .section{ 
-    display: flex; 
-    flex-direction: row; 
-    flex-wrap: wrap; 
+    display: flex;
 } 
  
-.sidebar{ 
+.sidebar{
+    min-height: 100vh;
+    padding-top: 10px;
+    margin-right: 100px;
     width: 360px; 
     background-color: #D9D9D9; 
-    margin-right: 180px; 
-    padding: 20px; 
-    box-sizing: border-box; 
-    display: block; 
-} 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.sidebar-item {
+    color: #363636;
+    line-height: 1.15;
+    width: 280px;
+}
  
-@media (max-width: 768px) { 
-    .sidebar { 
-        display: none; 
-    } 
-} 
- 
-.contents{ 
+.contents{
+    color: #363636;
     flex: 1; 
     box-sizing: border-box;
-    padding: 20px;
-} 
+    /* padding: 20px; */
+    margin-bottom: 20px;
+}
 
 .grid{
     display: grid;
-    flex: 1;
-    grid-template-columns: 350px 350px 350px;
-    grid-template-rows: 350px 350px 40px;
-    gap: 80px;
+    /* grid-template-columns: 350px 350px 350px;
+    grid-template-rows: 350px 350px 40px; */
+    grid-template-columns: repeat(auto-fit, 350px);
+    grid-template-rows: repeat(auto-fit, 380px);
+    gap: 40px;
 }
  
 .product-item{ 
     /* margin-bottom: 55px;  */
     /* margin-right: 80px;  */
-    /* height: 350px;  */
-    /* width: 350px;  */
-    border: 1px solid #0a0a0a; 
+    height: 380px; 
+    width: 350px; 
+    border: 1px solid #dbdbdb; 
     border-radius: 10px; 
     text-align: center; 
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    line-height: 5px; 
 } 
  
 @media (max-width: 768px) { 
     .product-item { 
        width: 100%;
        margin-right: 0px;
+    }
+    .sidebar {
+        min-height: auto;
+        width: 100%;
+        margin-right: 0px;
+        padding: 20px;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .sidebar-item {
+        width: auto;
+        margin-right:16px;
+        font-size: 0.5rem;
+        line-height: 18px; 
+    }
+    .grid{
+        gap: 40px;
+    }
+    .section{  
+        flex-wrap: wrap; 
+    }
+    .contents{
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .menu{ 
+        flex-direction: column;
     } 
 }
 
@@ -108,11 +155,67 @@ li{
     height: 240px;
     object-fit: contain;
 }
- 
+
 footer{ 
     background-color: #285858; 
     color: white; 
     height: 70px; 
     line-height: 70px; 
-    text-align: center; 
+    text-align: center;
+}
+
+.form-container{
+    padding: 20px;
+    color: #363636;
+}
+
+.order-container{
+    padding: 20px;
+    color: #363636;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.button {
+  align-items: center;
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
+  box-sizing: border-box;
+  color: #363636;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 1rem;
+  height: 2.5em;
+  justify-content: center;
+  line-height: 1.5;
+  padding: calc(.5em - 1px) 1em;
+  position: relative;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+}
+
+.button:active {
+  border-color: #4a4a4a;
+  outline: 0;
+}
+
+.button:focus {
+  border-color: #485fc7;
+  outline: 0;
+}
+
+.button:hover {
+  border-color: #b5b5b5;
+}
+
+.button:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
 }

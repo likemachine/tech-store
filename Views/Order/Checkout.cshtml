@@ -1,7 +1,7 @@
 @model Order
 
-<div class="row">
-    <h3>Оформление заказа</h3>
+<div class="order-container">
+    <h1>Оформление заказа</h1>
     <form asp-action="Checkout" method="post" class="form">
         <div>
             <label asp-for="Name"></label>
@@ -38,6 +38,7 @@
                 <span asp-validation-for="Email"></span>
             </div>
         </div>
-        <input type="submit" value="Завершить заказ"/>
+        <hr />
+        <input type="submit" value="Завершить заказ" class="button"/>
     </form>
 </div>
