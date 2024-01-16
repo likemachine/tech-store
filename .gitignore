@@ -1,2 +1,5 @@
-obj/
-bin/Debug/
+Tech-Store/obj/
+Tech-Store/bin/Debug/
+TechStoreTests/bin/Debug
+TechStoreTests/obj
+.vscode/

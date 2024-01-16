@@ -10,11 +10,11 @@ using TechStore.ViewModels;
 namespace TechStore.Controllers {
     public class HomeController : Controller {
         private readonly IAllProducts _allProducts;
-        private readonly IProductsType _allTypes;
+        //private readonly IProductsType _allTypes; // модель типов не используется
 
-        public HomeController(IAllProducts iallp, IProductsType ipt) {
+        public HomeController(IAllProducts iallp) {//, IProductsType ipt) {
             _allProducts = iallp;
-            _allTypes = ipt;
+            //_allTypes = ipt;
         }
 
         [Route("/")]
@@ -47,9 +47,6 @@ namespace TechStore.Controllers {
             };
 
             ViewBag.Title = "Tech-Store";
-            // HomeViewModel obj = new HomeViewModel();
-            // obj.allProducts = _allProducts.Products;
-            // obj.currType = "Серверы";
 
             return View(productObj);
         }
