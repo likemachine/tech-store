@@ -23,15 +23,15 @@ namespace TechStore.Controllers {
             
             cart.ListCartItems = cart.getCartItems();
             
-            Console.WriteLine("Товаров в корзине = {0}", cart.ListCartItems.Count);
+            //Console.WriteLine("Товаров в корзине = {0}", cart.ListCartItems.Count);
             if(cart.ListCartItems.Count == 0) {
                 ModelState.AddModelError("","Корзина пуста");
-                Console.WriteLine("Ошибка не вывелась а товара нет");
+                //Console.WriteLine("Ошибка не вывелась а товара нет");
             }
 
             if(ModelState.IsValid) {
                 allOrders.CreateOrder(order);
-                Console.WriteLine("Валидно");
+                //Console.WriteLine("Валидно");
                 return RedirectToAction(nameof(Complete));
             }
 
@@ -47,7 +47,6 @@ namespace TechStore.Controllers {
             return View(order);
         }
 
-        //Функция комплит не вызывается, пробелма может быть в роутинге 
         [Route("Order/Complete")] 
         public IActionResult Complete() {
             ViewBag.Message = "Заказ успешно создан!";
