@@ -1,5 +1,4 @@
 
-using Microsoft.EntityFrameworkCore;
 using TechStore.interfaces;
 using TechStore.Models;
 

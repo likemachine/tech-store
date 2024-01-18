@@ -69,7 +69,7 @@ li{
 } 
  
 .sidebar{
-    min-height: 100vh;
+    min-height: 80vh;
     padding-top: 10px;
     margin-right: 100px;
     width: 360px; 

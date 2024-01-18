@@ -1,9 +1,4 @@
 using TechStore.interfaces;
-// using TechStore.Models;
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
 
 namespace TechStore.mocks {
     public class MockType : IProductsType

@@ -19,6 +19,8 @@ namespace TechStore.Models{
         
         [Display(Name = "Номер телефона")]
         [DataType(DataType.PhoneNumber)]
+        [StringLength(10)]
+        [Required(ErrorMessage = "Длина номера не менее 10 знаков")]
         public string Phone { get; set; }
         
         [Display(Name = "e-mail")]

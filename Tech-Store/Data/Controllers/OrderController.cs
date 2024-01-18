@@ -23,10 +23,8 @@ namespace TechStore.Controllers {
             
             cart.ListCartItems = cart.getCartItems();
             
-            //Console.WriteLine("Товаров в корзине = {0}", cart.ListCartItems.Count);
             if(cart.ListCartItems.Count == 0) {
                 ModelState.AddModelError("","Корзина пуста");
-                //Console.WriteLine("Ошибка не вывелась а товара нет");
             }
 
             if(ModelState.IsValid) {
@@ -35,15 +33,7 @@ namespace TechStore.Controllers {
                 return RedirectToAction(nameof(Complete));
             }
 
-            Console.WriteLine("Не валидно");
-            foreach (var modelState in ModelState.Values)
-                {
-                    foreach (var error in modelState.Errors)
-                    {
-                        Console.WriteLine(error.ErrorMessage);
-                    }
-                }
-                    
+            Console.WriteLine("Не валидно");                    
             return View(order);
         }
 

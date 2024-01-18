@@ -1,10 +1,4 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-// using Microsoft.EntityFrameworkCore.Metadata.Internal;
-// using Tech_Store.Migrations;
 using TechStore.interfaces;
 using TechStore.Models;
 using TechStore.ViewModels;
