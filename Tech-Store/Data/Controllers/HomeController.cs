@@ -6,11 +6,9 @@ using TechStore.ViewModels;
 namespace TechStore.Controllers {
     public class HomeController : Controller {
         private readonly IAllProducts _allProducts;
-        //private readonly IProductsType _allTypes; // модель типов не используется
 
-        public HomeController(IAllProducts iallp) {//, IProductsType ipt) {
+        public HomeController(IAllProducts iallp) {
             _allProducts = iallp;
-            //_allTypes = ipt;
         }
 
         [Route("/")]

@@ -1,4 +1,3 @@
-
 using TechStore.Models;
 
 namespace TechStore.interfaces{

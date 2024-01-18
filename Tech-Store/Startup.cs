@@ -1,13 +1,3 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
-// using Microsoft.AspNetCore.Builder;
-// using Microsoft.AspNetCore.Hosting;
-// using Microsoft.AspNetCore.Http;g
-// using Microsoft.Extensions.Configuration;
-// using Microsoft.Extensions.DependencyInjection;
-// using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.EntityFrameworkCore;
 using TechStore.interfaces;
 using TechStore.Repository;
@@ -32,7 +22,7 @@ namespace TechStore{
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => Cart.GetCart(sp));
 
-            services.AddMvc();//option => option.EnableEndpointRouting = false); закоментилось для подключения app.UseRouting и useEndpoints
+            services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
         }
@@ -44,7 +34,6 @@ namespace TechStore{
             app.UseStaticFiles();
             app.UseSession();
             app.UseRouting();
-            //app.UseMvcWithDefaultRoute(); закоментилось для подключения app.UseRouting и useEndpoints
             app.UseEndpoints(endpoints =>{
                  endpoints.MapControllerRoute(
                  name: "default",

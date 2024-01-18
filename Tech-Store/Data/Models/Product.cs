@@ -1,4 +1,3 @@
-
 namespace TechStore.Models {
     public class Product{
         public int Id { set; get; }
