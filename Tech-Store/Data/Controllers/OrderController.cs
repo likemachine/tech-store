@@ -29,11 +29,9 @@ namespace TechStore.Controllers {
 
             if(ModelState.IsValid) {
                 allOrders.CreateOrder(order);
-                //Console.WriteLine("Валидно");
                 return RedirectToAction(nameof(Complete));
             }
-
-            Console.WriteLine("Не валидно");                    
+             
             return View(order);
         }
 
