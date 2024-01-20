@@ -1,13 +1,10 @@
 using Moq;
-using TechStore.Repository;
 using TechStore.interfaces;
 using TechStore.Models;
 using TechStore.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using TechStore.ViewModels;
 using TechStore;
 using Microsoft.EntityFrameworkCore;
-using Tech_Store.Migrations;
 
 namespace TechStoreTests;
 
@@ -16,131 +13,84 @@ public class OrderControllerTests
     [Fact]
     public void Checkout_ReturnsView()
     {
-        // Arrange
+        // Arrange - создание контроллера заказов
         var orderController = new OrderController(null, null);
 
-        // Act
+        // Act - вызов метода контроллера
         var result = orderController.Checkout();
 
-        // Assert
-        Assert.IsType<ViewResult>(result); //Проверяем отображение checkout
+        // Assert - проверка отображение checkout
+        Assert.IsType<ViewResult>(result);
     }
     
     [Fact]
     public void Checkout_WithEmptyCart_ReturnsModelError()
     {
-        // Arrange
+        // Arrange - создание временной бд в памяти
         var options = new DbContextOptionsBuilder<AppDBContent>()
         .UseInMemoryDatabase(databaseName: "TestDatabase")
         .Options;
 
-        using (var context = new AppDBContent(options))
-        {
-            var cart = new Cart(context);
-            var mockAllOrders = new Mock<IAllOrders>();
-            var orderController = new OrderController(mockAllOrders.Object, cart);
-        
-            // Act
-            var result = orderController.Checkout(new Order());
+        // создание корзины и макета заказа
+        using var context = new AppDBContent(options);
+        var cart = new Cart(context);
+        var mockAllOrders = new Mock<IAllOrders>();
+        var orderController = new OrderController(mockAllOrders.Object, cart);
 
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            Assert.True(viewResult.ViewData.ModelState.ContainsKey(""));
-            var modelStateEntry = viewResult.ViewData.ModelState[""];
-            Assert.Equal("Корзина пуста", modelStateEntry.Errors[0].ErrorMessage);
-        }
+        // Act - вызов метода контроллера с заказом
+        var result = orderController.Checkout(new Order());
+
+        // Assert проверка наличия ошибки пустой корзины
+        var viewResult = Assert.IsType<ViewResult>(result);
+        Assert.True(viewResult.ViewData.ModelState.ContainsKey(""));
+        var modelStateEntry = viewResult.ViewData.ModelState[""];
+        Assert.Equal("Корзина пуста", modelStateEntry.Errors[0].ErrorMessage);
     }
-    
-    // [Fact]
-    // public void Checkout_WithInvalidOrderModel_ReturnsViewWithModelError()
-    // {
-    //     // Arrange
-    //     var options = new DbContextOptionsBuilder<AppDBContent>()
-    //     .UseInMemoryDatabase(databaseName: "TestDatabase")
-    //     .Options;
-
-    //     using (var context = new AppDBContent(options))
-    //     {
-    //         // Populate in-memory database with a product
-    //         var product = new Product { Id = 1, Brand = "B1", Model = "M1", Price = 10000, Img = "test.png", LongDesc = "Test Product" };
-    //         context.Product.Add(product);
-    //         context.SaveChanges();
-
-    //         // Create a unique CartId for this test
-    //         var cartId = Guid.NewGuid().ToString();
-    //         var cart = new Cart(context) { CartId = cartId };
-
-    //         // Add product to cart
-    //         var cartItem = new CartItem { Product = product, Price = product.Price, CartId = cartId };
-    //         context.CartItem.Add(cartItem);
-    //         context.SaveChanges();
-
-    //         var orderRepo = new OrderRepo(context, cart);
-    //         var orderController = new OrderController(orderRepo, cart);
-
-    //         // Invalid order with missing required fields
-    //         var invalidOrder = new Order()
-    //         {
-    //             Name = "0",
-    //             Surname = "0",
-    //             Adress = "0",
-    //             Phone = 0,
-    //             Email = " "
-    //         };
-
-    //         // Act
-    //         var result = orderController.Checkout(invalidOrder);
-
-    //         var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
-    //         Assert.Equal("Complete", redirectToActionResult.ActionName);
-    //     }
-    // }
     
     [Fact]
     public void Checkout_WithValidOrderAndNonEmptyCart_RedirectsToComplete()
     {
-        // Arrange
+        // Arrange - создание временной бд в памяти
         var options = new DbContextOptionsBuilder<AppDBContent>()
         .UseInMemoryDatabase(databaseName: "TestDatabase")
         .Options;
 
-        using (var context = new AppDBContent(options))
+        // Сохраняем продукт в бд
+        using var context = new AppDBContent(options);
+        var product = new Product { Id = 2, Brand = "B2", Model = "M2", Price = 20000, Img = "test.png", LongDesc = "Test Product" };
+        context.Product.Add(product);
+        context.SaveChanges();
+
+        // Создаем уникальную корзину
+        var cartId = Guid.NewGuid().ToString();
+        var cart = new Cart(context) { CartId = cartId };
+
+        // Добавляем продукт в корзину и сохраняем в бд
+        var cartItem = new CartItem { Product = product, Price = product.Price, CartId = cartId };
+        context.CartItem.Add(cartItem);
+        context.SaveChanges();
+
+        // Создание макета формы заказа и контроллера заказа с макетом и корзиной
+        var mockAllOrders = new Mock<IAllOrders>();
+        var orderController = new OrderController(mockAllOrders.Object, cart);
+
+        // Создаем валидный заказ
+        var validOrder = new Order
         {
-            // Populate in-memory database with a product
-            var product = new Product { Id = 2, Brand = "B2", Model = "M2", Price = 20000, Img = "test.png", LongDesc = "Test Product" };
-            context.Product.Add(product);
-            context.SaveChanges();
+            Name = "John",
+            Surname = "Doe",
+            Adress = "123 Main St",
+            Phone = "555-1234",
+            Email = "john.doe@example.com"
+        };
 
-            // Create a unique CartId for this test
-            var cartId = Guid.NewGuid().ToString();
-            var cart = new Cart(context) { CartId = cartId };
+        // Вызов метода контроллера, который перенаправляет на страницу подтверждения при валидности формы заказа и наличия товара 
+        var result = orderController.Checkout(validOrder);
 
-            // Add product to cart
-            var cartItem = new CartItem { Product = product, Price = product.Price, CartId = cartId };
-            context.CartItem.Add(cartItem);
-            context.SaveChanges();
-
-            var mockAllOrders = new Mock<IAllOrders>();
-            var orderController = new OrderController(mockAllOrders.Object, cart);
-
-            // Valid order
-            var validOrder = new Order
-            {
-                Name = "John",
-                Surname = "Doe",
-                Adress = "123 Main St",
-                Phone = "555-1234",
-                Email = "john.doe@example.com"
-            };
-
-            // Act
-            var result = orderController.Checkout(validOrder);
-
-            // Assert
-            var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Complete", redirectToActionResult.ActionName);
+        // Assert - проверка соответствия модели вывода "Complete" 
+        var redirectToActionResult = Assert.IsType<RedirectToActionResult>(result);
+        Assert.Equal("Complete", redirectToActionResult.ActionName);
     }
-}
 
 }
 

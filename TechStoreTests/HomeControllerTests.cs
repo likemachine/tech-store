@@ -10,40 +10,39 @@ namespace TechStoreTests;
 public class HomeControllerTests
 {
     [Fact]
-    public void Can_Use_Product_Repo()
+    public void Can_Use_Null_Catalog()
     {
-        // Arrange
+        // Arrange - создание макетов интерфейса и контроллера
         Mock<IAllProducts> mockAllProducts = new Mock<IAllProducts>();
-
-        // Настройка макетов
-        mockAllProducts.Setup(m => m.Products).Returns(new List<Product> {});
         HomeController controller = new HomeController(mockAllProducts.Object);
 
-        // Act
+        // Act - вызов метода контроллера и получение модели представления
         ViewResult result = controller.List(null);
         HomeViewModel viewModel = result.Model as HomeViewModel;
         
-        // Assert
+        // Assert - проверки успешного возрвата модели представления с пустым каталогом
         Assert.NotNull(result.Model);
-        Assert.Null(viewModel.allProducts.FirstOrDefault()?.Id); // Проверка возможности использовать пустые макеты в контроллере
+        Assert.Null(viewModel.allProducts.FirstOrDefault()?.Id);
     }
 
     [Fact]
     public void Can_Add_Product()
     {
-        // Arrange
+        // Arrange - создание макетов и добавление товара в список
         Mock<IAllProducts> mockAllProducts = new Mock<IAllProducts>();
 
-        // Настройка макетов
-        mockAllProducts.Setup(m => m.Products).Returns(new List<Product> {new Product {Brand = "B1"}});
+        mockAllProducts.Setup(m => m.Products).Returns(new List<Product> {
+            new Product {Brand = "B1"}
+            });
+
         HomeController controller = new HomeController(mockAllProducts.Object);
 
         // Act
         ViewResult result = controller.List(null);
         HomeViewModel viewModel = result.Model as HomeViewModel;
         
-        // Assert
-        Assert.Equal("B1", viewModel.allProducts.FirstOrDefault()?.Brand); // Проверка соответствия ожидаемого названия брэнда продукта
+        // Assert - проверка соответствия ожидаемого брэнда продукта
+        Assert.Equal("B1", viewModel.allProducts.FirstOrDefault()?.Brand);
     }
 
     [Fact]
@@ -52,7 +51,7 @@ public class HomeControllerTests
         // Arrange
         Mock<IAllProducts> mockAllProducts = new Mock<IAllProducts>();
 
-        // Настройка макетов и создание 5 объектов
+        // Cоздание 5 объектов каталога
         mockAllProducts.Setup(m => m.Products).Returns(new List<Product> 
         {
             new Product {Brand = "B1", Model = "M1", Price = 10000},
@@ -80,11 +79,11 @@ public class HomeControllerTests
     [Fact]
     public void Can_Switch_To_Product_Type_Category()
     {
-        // Arrange
+        // Arrange - создание макетов
         Mock<IAllProducts> mockAllProducts = new Mock<IAllProducts>();
         HomeController controller = new HomeController(mockAllProducts.Object);
 
-        // Act
+        // Act - вызов метода контроллера с заданной категорией
         ViewResult resultType = controller.List("Servers");
         HomeViewModel modelType = resultType.Model as HomeViewModel;
 

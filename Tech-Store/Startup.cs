@@ -9,7 +9,7 @@ namespace TechStore{
     {
         private IConfigurationRoot _confString;
 
-        public Startup(IHostEnvironment hostEnv){
+        public Startup(IHostEnvironment hostEnv) {
             _confString = new ConfigurationBuilder().SetBasePath(hostEnv.ContentRootPath).AddJsonFile("dbsettings.json").Build();
         }
 
